@@ -1,0 +1,862 @@
+┌──(root💀kali)-[~/Desktop]
+└─# cd PeachOS_protected 
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean          
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+m -rf ./build/kernel.asm.o
+make: m: No such file or directory
+make: *** [Makefile:23: clean] Error 127
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean                                                                                        2 ⨯
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o -o ./build/kernelfull.o
+i686-elf-gcc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 6.4042e-05 s, 8.0 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+0+1 records in
+0+1 records out
+29 bytes copied, 7.3874e-05 s, 393 kB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000365296 s, 140 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean                          
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o -o ./build/kernelfull.o
+i686-elf-gcc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 8.3174e-05 s, 6.2 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 0.000130796 s, 3.9 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000696876 s, 73.5 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o -o ./build/kernelfull.o
+i686-elf-gcc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 8.1978e-05 s, 6.2 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 0.000105507 s, 4.9 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000637354 s, 80.3 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostarterfiles -nodefaultlibs -Wall -O0 -Iinc -std-gnu99 -c ./src/kernel.c -o ./build/kernel.o
+i686-elf-gcc: error: unrecognized command-line option '-nostarterfiles'; did you mean '-nostartfiles'?
+i686-elf-gcc: error: unrecognized command-line option '-std-gnu99'; did you mean '-std=gnu99'?
+make: *** [Makefile:22: build/kernel.o] Error 1
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean                                                                                        2 ⨯
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 8.0894e-05 s, 6.3 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+1+1 records in
+1+1 records out
+514 bytes copied, 0.00011736 s, 4.4 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000679562 s, 75.3 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 8.6341e-05 s, 5.9 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+1+1 records in
+1+1 records out
+514 bytes copied, 0.00012474 s, 4.1 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000619571 s, 82.6 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# cd bin              
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                         
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) target remote | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x000000000000fff0 in ?? ()
+(gdb) c
+Continuing.
+[Inferior 1 (process 1) exited normally]
+(gdb) target remote | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x000000000000fff0 in ?? ()
+(gdb) break kernel_main
+Function "kernel_main" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) n
+(gdb) break kernel_start
+Breakpoint 1 at 0x100200: file ./src/kernel.c, line 5.
+(gdb) bt
+#0  0x000000000000fff0 in ?? ()
+#1  0x0000000000000000 in ?? ()
+(gdb) layout asm
+Detaching from program: , process 1
+Remote communication error.  Target disconnected.: Broken pipe.
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                         
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) target remote | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x000000000000fff0 in ?? ()
+(gdb) break kernel_start
+Breakpoint 1 at 0x100200: file ./src/kernel.c, line 5.
+(gdb) c
+Continuing.
+
+Breakpoint 1, kernel_start () at ./src/kernel.c:5
+5       }
+(gdb) bt
+#0  kernel_start () at ./src/kernel.c:5
+#1  0xf000ff53f000ff53 in ?? ()
+#2  0xf000e2c3f000ff53 in ?? ()
+#3  0xf000ff53f000ff53 in ?? ()
+#4  0xf000ff53f000ff54 in ?? ()
+#5  0xf000fea5f000ff53 in ?? ()
+#6  0xf000d434f000e987 in ?? ()
+#7  0xf000d434f000d434 in ?? ()
+#8  0xf000ef57f000d434 in ?? ()
+#9  0xc0005634f000d434 in ?? ()
+#10 0xf000f841f000f84d in ?? ()
+#11 0xf000e739f000e3fe in ?? ()
+#12 0xf000e82ef000f859 in ?? ()
+#13 0xf000d459f000efd2 in ?? ()
+#14 0xf000fe6ef000e6f2 in ?? ()
+#15 0xf000ff53f000ff53 in ?? ()
+#16 0xf000615cf000ff53 in ?? ()
+#17 0xf000ff53c0009420 in ?? ()
+#18 0xf000ff53f000ff53 in ?? ()
+#19 0xf000ff53f000ff53 in ?? ()
+#20 0xf000ff53f000ff53 in ?? ()
+#21 0xf000ff53f000ff53 in ?? ()
+#22 0xf000ff53f000ff53 in ?? ()
+#23 0xf000ff53f000ff53 in ?? ()
+#24 0xf000ff53f000ff53 in ?? ()
+#25 0xf000ff53f000ff53 in ?? ()
+#26 0xf000ff53f000ff53 in ?? ()
+#27 0xf000ff53f000ff53 in ?? ()
+#28 0xf000ff53f000ff53 in ?? ()
+#29 0xf000ff53f000ff53 in ?? ()
+#30 0xf000ff53f000ff53 in ?? ()
+#31 0xf000ff53f000ff53 in ?? ()
+#32 0xf000ff53f000ff53 in ?? ()
+#33 0xf000ec59f000ff53 in ?? ()
+#34 0xf000ff539fc0003d in ?? ()
+#35 0xf000ff53c0007220 in ?? ()
+--Type <RET> for more, q to quit, c to continue without paging--ret
+#36 0xf000ff53f000ff53 in ?? ()
+#37 0xf000ff53f000ff53 in ?? ()
+#38 0xf000ff53f000ff53 in ?? ()
+#39 0xf000ff53f000ff53 in ?? ()
+#40 0xf000ff53f000ff53 in ?? ()
+#41 0xf000ff53f000ff53 in ?? ()
+#42 0xf000ff53f000ff53 in ?? ()
+#43 0xf000ff53f000ff53 in ?? ()
+#44 0xf000ff53f000ff53 in ?? ()
+#45 0xf000ff53f000ff53 in ?? ()
+#46 0xf000ff53f000ff53 in ?? ()
+#47 0xf000ff53f000ff53 in ?? ()
+#48 0xf000ff53f000ff53 in ?? ()
+#49 0x00000000f000ff53 in ?? ()
+#50 0x0000000000000000 in ?? ()
+(gdb) q
+A debugging session is active.
+
+        Inferior 1 [process 1] will be detached.
+
+Quit anyway? (y or n) y
+Detaching from program: , process 1
+Ending remote debugging.
+[Inferior 1 (process 1) detached]
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# 
+
+----------------------------------------------------------------------------
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./        
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+nasm -f elf -g ./src/idt/idt.asm -o ./build/idt/idt.asm.o
+i686-elf-gcc -I./src -I./src/idt -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/idt/idt.c -o ./build/idt/idt.o
+i686-elf-gcc -I./src -I./src/memory -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/memory.c -o ./build/memory/memory.o
+nasm -f elf -g ./src/io/io.asm -o ./build/io/io.asm.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 8.1179e-05 s, 6.3 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+32+1 records in
+32+1 records out
+16443 bytes (16 kB, 16 KiB) copied, 0.000312912 s, 52.5 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000512403 s, 99.9 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# cd bin              
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                         
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) target remote | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-x86_64 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x000000000000fff0 in ?? ()
+(gdb) break kernel.c:95
+Breakpoint 1 at 0x10042a: file ./src/kernel.c, line 95.
+(gdb) c
+Continuing.
+
+Breakpoint 1, kernel_main () at ./src/kernel.c:95
+95          outb(0x60, 0xff);
+(gdb) layout asm
+Detaching from program: , process 1
+Ending remote debugging.
+[Inferior 1 (process 1) detached]
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# 
+
+--------------------------------------------------------------------------------
+
+┌──(root💀kali)-[~]
+└─# cd Desktop 
+                                                                                                          
+┌──(root💀kali)-[~/Desktop]
+└─# cd PeachOS_protected 
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean          
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh          
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+nasm -f elf -g ./src/idt/idt.asm -o ./build/idt/idt.asm.o
+i686-elf-gcc -I./src -I./src/idt -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/idt/idt.c -o ./build/idt/idt.o
+i686-elf-gcc -I./src -I./src/memory -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/memory.c -o ./build/memory/memory.o
+nasm -f elf -g ./src/io/io.asm -o ./build/io/io.asm.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/memory/heap/heap.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/kheap.c -o ./build/memory/heap/kheap.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 9.8059e-05 s, 5.2 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+32+1 records in
+32+1 records out
+16463 bytes (16 kB, 16 KiB) copied, 0.000197566 s, 83.3 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000442312 s, 116 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# cd bin              
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                         
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x0000fff0 in ?? ()
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) break kernel.c:104
+Breakpoint 1 at 0x100454: file ./src/kernel.c, line 108.
+(gdb) c
+Continuing.
+
+Breakpoint 1, kernel_main () at ./src/kernel.c:108
+108     }
+(gdb) print ptr
+$1 = (void *) 0x1000000
+(gdb) print ptr2
+$2 = (void *) 0x1001000
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 1] will be detached.
+
+Quit anyway? (y or n) y
+Detaching from program: , process 1
+Remote communication error.  Target disconnected.: Broken pipe.
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# cd .. 
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o
+rm -rf ./build/kernelfull.o
+
+
+--------------------------------------------------------------------
+
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean                                                                                        2 ⨯
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o
+rm -rf ./build/kernelfull.o
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+nasm -f elf -g ./src/idt/idt.asm -o ./build/idt/idt.asm.o
+i686-elf-gcc -I./src -I./src/idt -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/idt/idt.c -o ./build/idt/idt.o
+i686-elf-gcc -I./src -I./src/memory -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/memory.c -o ./build/memory/memory.o
+nasm -f elf -g ./src/io/io.asm -o ./build/io/io.asm.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/memory/heap/heap.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/kheap.c -o ./build/memory/heap/kheap.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 8.2794e-05 s, 6.2 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+32+1 records in
+32+1 records out
+16463 bytes (16 kB, 16 KiB) copied, 0.000194082 s, 84.8 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000418434 s, 122 MB/s
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# cd bin
+                                                                                                          
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                         
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x0000fff0 in ?? ()
+(gdb) break kernel.c:106
+Breakpoint 1 at 0x100487: file ./src/kernel.c, line 110.
+(gdb) c
+Continuing.
+
+Breakpoint 1, kernel_main () at ./src/kernel.c:110
+110     }
+(gdb) print ptr
+$1 = (void *) 0x1000000
+(gdb) print ptr2
+$2 = (void *) 0x1001000
+(gdb) print ptr23
+No symbol "ptr23" in current context.
+(gdb) print ptr3
+$3 = (void *) 0x1003000
+(gdb) print ptr4
+$4 = (void *) 0x1000000
+(gdb) 
+
+--------------------------------------------------------
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o ./build/memory/paging/paging.asm.o ./build/memory/paging/paging.o ./build/disk/disk.o
+rm -rf ./build/kernelfull.o
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+nasm -f elf -g ./src/idt/idt.asm -o ./build/idt/idt.asm.o
+i686-elf-gcc -I./src -I./src/idt -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/idt/idt.c -o ./build/idt/idt.o
+i686-elf-gcc -I./src -I./src/memory -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/memory.c -o ./build/memory/memory.o
+nasm -f elf -g ./src/io/io.asm -o ./build/io/io.asm.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/memory/heap/heap.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/kheap.c -o ./build/memory/heap/kheap.o
+nasm -f elf -g ./src/memory/paging/paging.asm -o ./build/memory/paging/paging.asm.o
+i686-elf-gcc -I./src -I./src/memory/paging -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/paging/paging.c -o ./build/memory/paging/paging.o
+i686-elf-gcc -I./src -I./src/disk -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/disk/disk.c -o ./build/disk/disk.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o ./build/memory/paging/paging.asm.o ./build/memory/paging/paging.o ./build/disk/disk.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 0.00015087 s, 3.4 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+32+1 records in
+32+1 records out
+16494 bytes (16 kB, 16 KiB) copied, 0.000179834 s, 91.7 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000423362 s, 121 MB/s
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# cd bin    
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                        
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) break kernel.c:120
+Breakpoint 1 at 0x100466: file ./src/kernel.c, line 120.
+(gdb) target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x0000fff0 in ?? ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, kernel_main () at ./src/kernel.c:120
+120         disk_read_sector(0, 1, buf);
+(gdb) next
+122         enable_interrupts();
+(gdb) print buf
+$1 = "\353\"\220", '\000' <repeats 33 times>, "\352)|\000\000\372\270\000\000\216؎\300\216м\000|\373\372\017\001\026d|\017 \300f\203\310\001\017\"\300\352j|\b\000\000\000\000\000\000\000\000\000\377\377\000\000\000\232\317\000\377\377\000\000\000\222\317\000\027\000L|\000\000\270\001\000\000\000\271d\000\000\000\277\000\000\020\000\350\a\000\000\000\352\000\000\020\000\b\000\211\303\301\350\030\r\340\000\000\000f\272\366\001\356\211\310f\272\362\001\356\211\330f\272\363\001\356f\272\364\001\211\330\301\350\b\356f\272\365\001\211\330\301\350\020\356f\272\367\001\260 \356Qf\272\367\001\354\250\bt\367\271\000\001"...
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 1] will be detached.
+
+Quit anyway? (y or n) y
+Detaching from program: , process 1
+Remote communication error.  Target disconnected.: Broken pipe.
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# 
+
+---------------------------------------------------
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# make clean
+rm -rf ./bin/boot.bin
+rm -rf ./bin/kernel.bin
+rm -rf ./bin/os.bin
+rm -rf ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o ./build/memory/paging/paging.asm.o ./build/memory/paging/paging.o ./build/disk/disk.o ./build/fs/pparser.o ./build/string/string.o
+rm -rf ./build/kernelfull.o
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# ./build.sh
+nasm -f bin ./src/boot/boot.asm -o ./bin/boot.bin
+nasm -f elf -g ./src/kernel.asm -o ./build/kernel.asm.o
+i686-elf-gcc -I./src -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/kernel.c -o ./build/kernel.o
+nasm -f elf -g ./src/idt/idt.asm -o ./build/idt/idt.asm.o
+i686-elf-gcc -I./src -I./src/idt -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/idt/idt.c -o ./build/idt/idt.o
+i686-elf-gcc -I./src -I./src/memory -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/memory.c -o ./build/memory/memory.o
+nasm -f elf -g ./src/io/io.asm -o ./build/io/io.asm.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/heap.c -o ./build/memory/heap/heap.o
+i686-elf-gcc -I./src -I./src/memory/heap -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/heap/kheap.c -o ./build/memory/heap/kheap.o
+nasm -f elf -g ./src/memory/paging/paging.asm -o ./build/memory/paging/paging.asm.o
+i686-elf-gcc -I./src -I./src/memory/paging -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/memory/paging/paging.c -o ./build/memory/paging/paging.o
+i686-elf-gcc -I./src -I./src/disk -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/disk/disk.c -o ./build/disk/disk.o
+i686-elf-gcc -I./src -I./src/fs -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/fs/pparser.c -o ./build/fs/pparser.o
+i686-elf-gcc -I./src -I./src/string -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -std=gnu99 -c ./src/string/string.c -o ./build/string/string.o
+i686-elf-ld -g -relocatable ./build/kernel.asm.o ./build/kernel.o ./build/idt/idt.asm.o ./build/idt/idt.o ./build/memory/memory.o ./build/io/io.asm.o ./build/memory/heap/heap.o ./build/memory/heap/kheap.o ./build/memory/paging/paging.asm.o ./build/memory/paging/paging.o ./build/disk/disk.o ./build/fs/pparser.o ./build/string/string.o -o ./build/kernelfull.o
+i686-elf-gcc -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc -T ./src/linker.ld -o ./bin/kernel.bin -ffreestanding -O0 -nostdlib ./build/kernelfull.o
+rm -rf ./bin/os.bin
+dd if=./bin/boot.bin >> ./bin/os.bin
+1+0 records in
+1+0 records out
+512 bytes copied, 0.000104115 s, 4.9 MB/s
+dd if=./bin/kernel.bin >> ./bin/os.bin
+40+1 records in
+40+1 records out
+20590 bytes (21 kB, 20 KiB) copied, 0.00046434 s, 44.3 MB/s
+dd if=/dev/zero bs=512 count=100 >> ./bin/os.bin
+100+0 records in
+100+0 records out
+51200 bytes (51 kB, 50 KiB) copied, 0.000600478 s, 85.3 MB/s
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected]
+└─# cd bin    
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                        
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x0000fff0 in ?? ()
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 1] will be detached.
+
+Quit anyway? (y or n) y
+Detaching from program: , process 1
+Remote communication error.  Target disconnected.: Broken pipe.
+                                                                                                         
+┌──(root💀kali)-[~/Desktop/PeachOS_protected/bin]
+└─# gdb
+GNU gdb (Debian 10.1-2) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.                                                        
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) add-symbol-file ../build/kernelfull.o 0x100000
+add symbol table from file "../build/kernelfull.o" at
+        .text_addr = 0x100000
+(y or n) y
+Reading symbols from ../build/kernelfull.o...
+(gdb) break kernel.c:141
+Breakpoint 1 at 0x100450: file ./src/kernel.c, line 141.
+(gdb) target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+Remote debugging using | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+WARNING: Image format was not specified for './os.bin' and probing guessed raw.
+         Automatically detecting the format is dangerous for raw images, write operations on block 0 will be restricted.
+         Specify the 'raw' format explicitly to remove the restrictions.
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x0000fff0 in ?? ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, kernel_main () at ./src/kernel.c:141
+141         struct path_root* root_path = pathparser_parse("0:/bin/shell.exe", NULL);
+(gdb) next
+147     }
+(gdb) print root_path
+$1 = (struct path_root *) 0x1402000
+(gdb) print *root_path
+$2 = {drive_no = 0, first = 0x1404000}
+(gdb) print *root_path->first 
+$3 = {part = 0x1403000 "bin", next = 0x1406000}
+(gdb) print *root_path->first->next
+$4 = {part = 0x1405000 "shell.exe", next = 0x0}
+(gdb) 
+
+
