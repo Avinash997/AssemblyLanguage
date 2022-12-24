@@ -1,0 +1,23 @@
+%include "io64.inc"
+
+section .data
+x dq 0
+y dq 10
+
+section .text
+global CMAIN
+CMAIN:
+     
+    ; do
+    ;   x++;
+    ; while (x <= y)
+
+dowhile:
+    inc qword[x]
+    
+    mov rax,[x]
+    cmp rax,[y]
+    jle dowhile
+   
+    xor rax, rax
+    ret

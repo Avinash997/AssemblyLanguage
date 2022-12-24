@@ -1,0 +1,44 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:
+    ; idiv reg
+    ; idiv mem   
+      
+    ; idiv 8-bit      ah   al  ->   al     ah
+    ; idiv 16-bit     dx   ax  ->   ax     dx  
+    ; idiv 32-bit    edx  eax  ->  eax    edx  
+    ; idiv 64-bit    rdx  rax  ->  rax    rdx
+    
+    ; cbw  
+    mov al,40
+    cbw
+    mov bl,10
+    idiv bl
+    
+    ; cwd 
+    mov ax,-200
+    cwd
+    mov bx,100
+    idiv bx
+
+    ; cdq
+    mov eax,6000
+    cdq
+    mov ebx,-6
+    idiv ebx
+
+    ; cqo
+    mov rax,307
+    cqo
+    mov rbx,5
+    idiv rbx
+    
+    ; divide overflow
+    ; mov ax,-8000
+    ; mov bl,10
+    ; idiv bl
+       
+    xor rax, rax
+    ret

@@ -1,0 +1,33 @@
+%include "io64.inc"
+
+section .data
+string1 db "abcdefgh",0
+string2 db "abcdefgh",0
+length equ $-string2
+equal db 0
+
+section .text
+global CMAIN
+CMAIN:    
+    ; source1:  rsi
+    ; source2:  rdi
+    ; cmpsb
+    ; cmpsw
+    ; cmpsd
+    ; cmpsq
+    cld
+    mov rsi,string1
+    mov rdi,string2
+    mov rcx,length
+    repe cmpsb
+    jnz NotEqual
+    
+    mov byte[equal],1
+    jmp End
+    
+NotEqual:
+    mov byte[equal],0
+
+End:                            
+    xor rax, rax
+    ret

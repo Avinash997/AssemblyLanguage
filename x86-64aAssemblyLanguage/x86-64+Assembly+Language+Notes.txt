@@ -1,0 +1,27 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:    
+    ; mov r64, immediate
+    mov rax,0x1020304050607080
+    
+    xor rbx,rbx
+    add rbx,0x1020304050607080
+    
+    xor rax,rax
+    add rax,0x80000000
+    
+    
+    mov r10,-1
+    mov r10b,0  
+    
+    mov r10,-1
+    mov r10w,0
+    
+    ; zero out upper 32 bits
+    mov r10,-1
+    or r10d,0
+
+    xor rax, rax
+    ret

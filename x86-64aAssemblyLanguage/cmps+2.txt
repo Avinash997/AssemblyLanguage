@@ -1,0 +1,33 @@
+%include "io64.inc"
+
+section .data
+dwordlist1 dd 0x11111111,0x22222222,0x33333333
+dowrdlist2 dd 0x11111111,0x22222222,0x44444444
+count equ 3
+equal db 0
+
+section .text
+global CMAIN
+CMAIN:     
+    ; source1:  rsi
+    ; source2:  rdi
+    ; cmpsb
+    ; cmpsw
+    ; cmpsd
+    ; cmpsq
+    cld
+    mov rsi,dwordlist1
+    mov rdi,dowrdlist2
+    mov rcx,count
+    repe cmpsd
+    jnz NotEqual
+    
+    mov byte[equal],1
+    jmp End
+    
+NotEqual:
+    mov byte[equal],0
+    
+End:   
+    xor rax, rax
+    ret

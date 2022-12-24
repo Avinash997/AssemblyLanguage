@@ -1,0 +1,29 @@
+%include "io64.inc"
+
+section .data
+number dq 10111000b
+var dq 10110111b
+
+section .text
+global CMAIN
+CMAIN:    
+    ; xor destination, source
+    ; xor reg, imm    
+    mov rax,10110101b
+    xor rax,10010101b
+    
+    ; xor reg, reg  
+    mov rbx,10001000b
+    mov rcx,11111111b
+    xor rbx,rcx
+    
+    ; xor mem, imm   
+    xor qword[number],0
+    
+    ; xor reg, mem  
+    ; xor mem, reg
+    xor rbx,[var]
+    xor [var],rax
+ 
+    xor rax, rax
+    ret

@@ -1,0 +1,22 @@
+%include "io64.inc"
+
+section .data
+num dd 100
+
+section .text
+global CMAIN
+CMAIN:   
+    ; neg reg    
+    mov rax,-10
+    neg rax
+    
+    mov rbx,50
+    mov rcx,0
+    neg rbx
+    neg rcx
+    
+    ; neg mem
+    neg dword[num]
+      
+    xor rax, rax
+    ret

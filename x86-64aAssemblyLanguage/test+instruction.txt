@@ -1,0 +1,18 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:    
+    ; test reg, imm   
+    ; test reg, reg  
+    ; test mem, imm
+    ; test reg, mem 
+    ; test mem, reg
+    mov al,101011b
+    test al, 1000b
+     
+    mov bl,10001100b
+    test bl,1001b
+    
+    xor rax, rax
+    ret

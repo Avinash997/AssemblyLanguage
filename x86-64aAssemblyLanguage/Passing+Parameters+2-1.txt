@@ -1,0 +1,45 @@
+%include "io64.inc"
+
+section .data
+gt     db "Parameter 1 is greater than parameter 2",0
+lssequ db "Parameter 1 is less than or equal to parameter 2",0
+
+section .text
+global CMAIN
+
+IsGreater:
+    mov rcx,[rsp+16]
+    mov rdx,[rsp+8]
+    
+    cmp rcx,rdx
+    jg .Greater
+
+    mov rax,0
+    jmp .End
+    
+.Greater:
+    mov rax,1
+
+.End:                        
+    ret
+    
+    
+CMAIN: 
+    push 1
+    push -5  
+    call IsGreater
+    
+    test rax,rax
+    jnz .Greater
+    
+    PRINT_STRING lssequ
+    jmp .End
+    
+.Greater:
+    PRINT_STRING gt
+
+.End:   
+    add rsp,16
+    
+    xor rax, rax
+    ret

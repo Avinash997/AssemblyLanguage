@@ -1,0 +1,22 @@
+%include "io64.inc"
+
+%define size 100
+%define size 500
+
+%define move mov
+%define destination rdi
+%define source rsi
+
+%define bsize size*8
+%define size 1
+
+section .text
+global CMAIN
+CMAIN:  
+    move source,10           ; mov rsi,10   
+    move destination,source  ; mov rdi,rsi
+    
+    mov rax,bsize            ; mov rax,1*8
+    
+    xor rax, rax
+    ret

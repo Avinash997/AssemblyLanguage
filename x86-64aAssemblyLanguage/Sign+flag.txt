@@ -1,0 +1,13 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:    
+    mov rax,30
+    add rax,1	; positive result 31
+    
+    mov rbx,30
+    sub rbx,40	; negative result -10
+    
+    xor rax, rax
+    ret

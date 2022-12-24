@@ -1,0 +1,21 @@
+%include "io64.inc"
+
+section .data
+; name size value
+; letters numbers _ # ~ ?
+; first character to use  letters _ ?
+
+sum      dq 20
+SUM      dq 20
+item     db 10
+_counter dd 0
+
+section .text
+global CMAIN
+CMAIN:
+    
+    mov rax,sum     ; this instruction will transfer the address of sum into rax   
+    mov rax,[sum]   ; this instruction will transfer the value of sum into rax
+    
+    xor rax, rax
+    ret

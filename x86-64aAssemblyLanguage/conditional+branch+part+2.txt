@@ -1,0 +1,46 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:   
+    ; ja/jnbe destination  
+    mov rax,5
+    cmp rax,1
+    ja greater  
+    
+    ; jae/jnb destination
+    mov rax,5
+    cmp rax,5
+    jae greater_or_equal
+    
+    ; jb/jnae destination
+    mov rbx,20
+    cmp rbx,50
+    jb less
+    
+    ; jbe/jna destination    
+    cmp rbx,20
+    jbe less_or_equal
+   
+    mov r8,5
+    jmp end
+
+greater:
+    ; we jumped here if leftop is greater than rightop
+    jmp end
+    
+greater_or_equal:
+    ; we jumped here if leftop is greater than or equal to rightop
+    jmp end
+    
+less:
+    ; we jumped here if leftop is less than rightop
+    jmp end  
+
+less_or_equal:
+    ; we jumped here if leftop is less than or equal to rightop
+    jmp end  
+    
+end:
+    xor rax, rax
+    ret

@@ -1,0 +1,25 @@
+%include "io64.inc"
+
+section .data
+source db "assembly language",0
+length equ $-source
+
+destination times length db 0
+
+section .text
+global CMAIN
+CMAIN:   
+    ; source:      rsi
+    ; destination: rdi
+    ; movsb
+    ; movsw
+    ; movsd
+    ; movsq
+    cld
+    mov rsi,source
+    mov rdi,destination
+    mov rcx,length
+    rep movsb
+    
+    xor rax, rax
+    ret

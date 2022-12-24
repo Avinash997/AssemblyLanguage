@@ -1,0 +1,24 @@
+%include "io64.inc"
+
+section .data
+var dq 7
+
+section .text
+global CMAIN
+CMAIN:
+    ; xchg reg, reg    
+    mov rax,5
+    mov rdx,100
+    xchg rax,rdx
+    
+    mov bx,20
+    mov cx,3
+    xchg bx,cx
+    
+    ; xchg reg, mem
+    ; xchg mem, reg
+    mov rcx,90
+    xchg rcx,[var]
+  
+    xor rax, rax
+    ret
