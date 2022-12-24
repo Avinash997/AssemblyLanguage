@@ -1,0 +1,15 @@
+%include "io64.inc"
+
+section .data
+value dd 0x12345678
+
+section .text
+global CMAIN
+CMAIN:   
+    mov al,[value]
+    mov bl,[value+1]
+    mov cl,[value+2]
+    mov dl,[value+3]
+    
+    xor rax, rax
+    ret

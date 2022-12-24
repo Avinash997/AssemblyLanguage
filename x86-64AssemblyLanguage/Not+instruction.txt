@@ -1,0 +1,17 @@
+%include "io64.inc"
+
+section .data
+number db 11001000b
+
+section .text
+global CMAIN
+CMAIN:   
+    ; not reg
+    mov al,11110001b
+    not al
+    
+    ; not mem
+    not byte[number]
+ 
+    xor rax, rax
+    ret

@@ -1,0 +1,26 @@
+%include "io64.inc"
+
+section .data
+loc dq 0
+
+section .text
+global CMAIN
+CMAIN:   
+    ; jmp destination
+    ; jmp label
+    jmp end
+    
+    ; jmp reg
+    mov rbx,end
+    jmp rbx
+    
+    ; jmp mem 
+    mov qword[loc],end
+    jmp qword[loc]
+    
+    mov rax,5
+    add rax,10
+    
+end:    
+    xor rax, rax
+    ret

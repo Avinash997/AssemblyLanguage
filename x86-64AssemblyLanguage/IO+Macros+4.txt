@@ -1,0 +1,18 @@
+%include "io64.inc"
+
+section .data
+stringA times 10 db 0
+stringB times 10 db 0
+
+section .text
+global CMAIN
+CMAIN:
+
+    GET_STRING stringA,10
+    GET_STRING stringB,10
+        
+    PRINT_STRING stringA
+    PRINT_STRING stringB
+    
+    xor rax, rax
+    ret

@@ -1,0 +1,22 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:
+   
+    ; shr reg, imm
+    ; shr reg, cl
+    ; shr mem, imm
+    ; shr mem, cl
+    mov al,11001101b
+    shr al,2
+    
+    ; sar reg, imm
+    ; sar reg, cl
+    ; sar mem, imm
+    ; sar mem, cl
+    mov bl,11001101b
+    sar bl,2
+        
+    xor rax, rax
+    ret

@@ -1,0 +1,11 @@
+%include "io64.inc"
+
+BufferSize equ 500
+
+section .text
+global CMAIN
+CMAIN:   
+    mov rax,BufferSize
+   
+    xor rax, rax
+    ret

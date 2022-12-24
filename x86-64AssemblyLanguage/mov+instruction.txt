@@ -1,0 +1,36 @@
+%include "io64.inc"
+
+section .data
+books dd 10
+counter dq 50
+sum dq 30
+number dw 0
+
+section .text
+global CMAIN
+CMAIN:
+    ; mov destination, source        
+    ; mov reg,imm   
+    mov rax,-1
+    mov al,20
+    mov rdx,15
+    
+    ; mov reg,reg
+    mov rbx,7
+    mov rax,rbx
+    mov rcx,rax
+    
+    ; mov mem,imm   
+    mov dword[books],20
+    
+    ; mov reg,mem
+    ; mov mem,reg
+    mov rax,[counter]
+    mov [sum],rax
+    
+    ; 255
+    mov ax,256
+    mov word[number],256
+
+    xor rax, rax
+    ret

@@ -1,0 +1,33 @@
+%include "io64.inc"
+
+section .data
+sum dq 20
+
+section .text
+global CMAIN
+CMAIN:
+    ; add/sub destination,source   
+    ; add/sub reg, imm   
+    mov rax,10
+    add rax,5
+    sub rax,4
+    
+    ; add/sub reg, reg
+    mov rbx,10
+    mov rcx,20
+    add rbx,rcx
+    sub rcx,rbx
+    
+    ; add/sub mem, imm
+    add qword[sum],7
+    sub qword[sum],20
+    
+    ; add/sub reg, mem
+    ; add/sub mem, reg
+    mov rdx,100
+    mov rcx,5
+    add rdx,[sum]
+    sub [sum],rcx
+    
+    xor rax, rax
+    ret

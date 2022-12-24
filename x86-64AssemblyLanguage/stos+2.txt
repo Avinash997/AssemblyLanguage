@@ -1,0 +1,22 @@
+%include "io64.inc"
+
+section .data
+wordlist dw 0x12,0xab,0x45,0x67
+count equ 4
+
+section .text
+global CMAIN
+CMAIN:   
+    ; destination: rdi
+    ; stosb         al
+    ; stosw         ax
+    ; stosd        eax
+    ; stosq        rax    
+    cld
+    mov rdi,wordlist
+    mov rcx,count
+    mov ax,1
+    rep stosw
+    
+    xor rax, rax
+    ret

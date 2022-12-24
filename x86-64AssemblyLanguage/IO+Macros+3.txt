@@ -1,0 +1,24 @@
+%include "io64.inc"
+
+section .data
+stringA times 10 db 0
+
+section .text
+global CMAIN
+CMAIN:
+
+    ; GET_DEC     size,data
+    ; GET_UDEC    size,data
+    ; GET_HEX     size,data
+    ; GET_STRING  data,maxsize
+    
+    GET_DEC 8,rax
+    GET_CHAR rbx
+    GET_STRING stringA,10
+    
+    PRINT_DEC 8,rax
+    NEWLINE    
+    PRINT_STRING stringA
+    
+    xor rax, rax
+    ret

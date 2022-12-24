@@ -1,0 +1,28 @@
+%include "io64.inc"
+
+section .data
+var dd 1
+
+section .text
+global CMAIN
+CMAIN:    
+    ; rol reg, imm  
+    ; rol reg, cl 
+    ; rol mem, imm  
+    ; rol mem, cl
+    mov al,11000101b
+    mov cl,5
+    rol al,cl
+    
+    rol dword[var],8
+
+    ; rcl reg, imm  
+    ; rcl reg, cl 
+    ; rcl mem, imm  
+    ; rcl mem, cl
+    clc
+    mov bl,11000101b
+    rcl bl,5
+    
+    xor rax, rax
+    ret

@@ -1,0 +1,27 @@
+%include "io64.inc"
+
+section .data
+asm db "assembly",0
+
+section .text
+global CMAIN
+CMAIN:
+    
+    ; PRINT_DEC    size,data
+    ; PRINT_UDEC   size,data
+    ; PRINT_HEX    size,data
+    ; PRINT_STRING data
+    ; NEWLINE
+       
+    mov rax,100
+    
+    PRINT_DEC 8,rax
+    NEWLINE
+    
+    PRINT_HEX 8,rax
+    NEWLINE
+    
+    PRINT_STRING asm
+    
+    xor rax, rax
+    ret

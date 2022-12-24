@@ -1,0 +1,28 @@
+%include "io64.inc"
+
+section .data
+action db "procedure is called",0
+PrintProc dq 0
+
+section .text
+global CMAIN
+    
+PrintString:
+    PRINT_STRING action
+    
+    ret
+           
+CMAIN:     
+    ; call label
+    call PrintString
+    
+    ; call reg    
+    mov rax,PrintString
+    call rax
+    
+    ; call mem    
+    mov qword[PrintProc],PrintString
+    call qword[PrintProc]
+    
+    xor rax, rax
+    ret

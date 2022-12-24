@@ -1,0 +1,48 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:
+    mov rbp, rsp; for correct debugging   
+    ; jz 
+    mov rax,100
+    sub rax,100
+    jz zero
+    
+    ; jc
+    mov bl,200
+    add bl,100
+    jc carry
+   
+    ; jo
+    mov cl,-100
+    sub cl,100
+    jo overflow
+    
+    ; js
+    mov dl,0
+    or dl,10000000b
+    js sign
+    	
+    mov r8,10
+    jmp end
+
+zero:
+    ; we jumped here if zf is set
+    jmp end
+    
+carry:
+    ; we jumped here if cf is set
+    jmp end      
+
+overflow:
+    ; we jumped here if of is set
+    jmp end   
+    
+sign:
+    ; we jumped here if sf is set
+    jmp end  
+       
+end:   
+    xor rax, rax
+    ret

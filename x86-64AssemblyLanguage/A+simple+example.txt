@@ -1,0 +1,22 @@
+%include "io64.inc"
+
+section .data
+varA dq 0
+varB dq 0
+
+section .text
+global CMAIN
+CMAIN:
+    ; assign 7 to varA
+    ; assign -1 to varB
+    ; exchange varA and varB
+          
+    mov qword[varA],7
+    mov qword[varB],-1
+    
+    mov rax,[varA]     
+    xchg rax,[varB]
+    mov [varA],rax
+      
+    xor rax, rax
+    ret

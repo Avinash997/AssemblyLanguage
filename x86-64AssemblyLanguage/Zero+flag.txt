@@ -1,0 +1,14 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:    
+    mov rax,5
+    sub rax,5
+    
+    mov rbx,1
+    add rbx,-1
+    add rbx,7
+    
+    xor rax, rax
+    ret

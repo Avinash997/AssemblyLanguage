@@ -1,0 +1,15 @@
+%include "io64.inc"
+
+section .text
+global CMAIN
+CMAIN:
+        
+    mov al,11100000b
+    and al,0
+    
+    mov bl,10001000b
+    or  bl,10000000b
+    
+    xor rax, rax
+    
+    ret
