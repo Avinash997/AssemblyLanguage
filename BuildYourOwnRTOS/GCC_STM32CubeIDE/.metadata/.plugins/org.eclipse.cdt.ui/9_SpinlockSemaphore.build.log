@@ -1,0 +1,10 @@
+07:49:51 **** Incremental Build of configuration Debug for project 9_SpinlockSemaphore ****
+make -j8 all 
+arm-none-eabi-size   9_SpinlockSemaphore.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	    108	   6460	  13320	   3408	9_SpinlockSemaphore.elf
+Finished building: default.size.stdout
+ 
+
+07:49:52 Build Finished. 0 errors, 0 warnings. (took 354ms)
+

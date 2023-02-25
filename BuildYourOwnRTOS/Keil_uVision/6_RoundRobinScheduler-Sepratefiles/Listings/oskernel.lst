@@ -1,0 +1,156 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    2 00000000                 THUMB
+    3 00000000                 EXTERN           currentPt
+    4 00000000                 EXPORT           SysTick_Handler
+    5 00000000                 EXPORT           osSchedulerLaunch
+    6 00000000         
+    7 00000000         SysTick_Handler
+    8 00000000         ;SUSPEND CURRENT THREAD
+    9 00000000         
+   10 00000000         ;Disable global interrupts
+   11 00000000 B672            CPSID            I           ;
+   12 00000002         
+   13 00000002         ;Save r4,r5,r6,r7,r8,r9,r10,11
+   14 00000002 E92D 0FF0       PUSH             {R4-R11}    ;
+   15 00000006         
+   16 00000006         ;Load address of currentPt into r0
+   17 00000006 480D            LDR              R0, =currentPt ;
+   18 00000008         
+   19 00000008         ;Load r1 from address equals r0, i.e. r1 =currentPt
+   20 00000008 6801            LDR              R1,[R0]     ;
+   21 0000000A         
+   22 0000000A         ;Store Cortex-M SP at address equals r1, i.e Save SP int
+                       o tcb 
+   23 0000000A F8C1 D000       STR              SP,[R1]     ;
+   24 0000000E         
+   25 0000000E         ;CHOOSE NEXT THREAD
+   26 0000000E         
+   27 0000000E         ;Load r1 from a location 4bytes above address r1, i.e r1
+                        = currentPt->next
+   28 0000000E 6849            LDR              R1,[R1,#4]  ;
+   29 00000010         
+   30 00000010         ;Store r1 at address equals r0, i.e currentPt =  r1
+   31 00000010 6001            STR              R1,[R0]     ;
+   32 00000012         
+   33 00000012         ;Load Cortex-M SP from address equals r1, i.e SP =  curr
+                       entPt->stackPt
+   34 00000012 F8D1 D000       LDR              SP,[R1]     ;
+   35 00000016         
+   36 00000016         ;Restore r4,r5,r6,r7,r8,r9,r10,11
+   37 00000016 E8BD 0FF0       POP              {R4-R11}    ;
+   38 0000001A         
+   39 0000001A         ;Enable global interrupts
+   40 0000001A B662            CPSIE            I           ;
+   41 0000001C         
+   42 0000001C         ;Return from exception and restore r0,r1,r2,r3,r12,lr,pc
+                       ,psr 
+   43 0000001C 4770            BX               LR          ;
+   44 0000001E         
+   45 0000001E         
+   46 0000001E         
+   47 0000001E         
+   48 0000001E         osSchedulerLaunch
+   49 0000001E         ;Load address of currentPt into R0
+   50 0000001E 4807            LDR              R0,=currentPt ;
+   51 00000020         
+   52 00000020         ;Load r2 from address equals r0,i.e r2 =currentPt
+   53 00000020 6802            LDR              R2,[r0]     ;
+   54 00000022         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   55 00000022         ;Load Cortex-M SP from address equals R2,i.e. SP = curre
+                       ntPt->stackPt
+   56 00000022 F8D2 D000       LDR              SP,[R2]     ;
+   57 00000026         
+   58 00000026         ;Restore r4,r5,r6,r7,r8,r9,r10,r11
+   59 00000026 E8BD 0FF0       POP              {R4-R11}    ;
+   60 0000002A         
+   61 0000002A         ;Restore r12
+   62 0000002A F85D CB04       POP              {R12}       ;
+   63 0000002E         
+   64 0000002E         ;Restore r0,r1,r2,r3
+   65 0000002E BC0F            POP              {R0-R3}     ;
+   66 00000030         
+   67 00000030         ;Skip LR 
+   68 00000030 B001            ADD              SP,SP,#4    ;
+   69 00000032         
+   70 00000032         ;Create a new start location by popping LR
+   71 00000032 F85D EB04       POP              {LR}        ;
+   72 00000036         
+   73 00000036         ;Skip PSR by adding 4 to SP
+   74 00000036 B001            ADD              SP,SP,#4    ;
+   75 00000038         
+   76 00000038         ;Enable global interrupts
+   77 00000038 B662            CPSIE            I           ;
+   78 0000003A         
+   79 0000003A         ;Return from exception
+   80 0000003A 4770            BX               LR          ;
+   81 0000003C         
+   82 0000003C                 ALIGN
+   83 0000003C                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\objects\oskernel_1.d -o.\objects\oskernel_1.o -I.\RTE\_stm
+32 -IC:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Keil_v5\Packs\Kei
+l\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="_
+_UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="STM32F411xE 
+SETA 1" --predefine="_RTE_ SETA 1" --list=.\listings\oskernel.lst osKernel.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 1 in file osKernel.s
+   Uses
+      None
+Comment: .text unused
+SysTick_Handler 00000000
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 7 in file osKernel.s
+   Uses
+      At line 4 in file osKernel.s
+Comment: SysTick_Handler used once
+osSchedulerLaunch 0000001E
+
+Symbol: osSchedulerLaunch
+   Definitions
+      At line 48 in file osKernel.s
+   Uses
+      At line 5 in file osKernel.s
+Comment: osSchedulerLaunch used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+currentPt 00000000
+
+Symbol: currentPt
+   Definitions
+      At line 3 in file osKernel.s
+   Uses
+      At line 17 in file osKernel.s
+      At line 50 in file osKernel.s
+
+1 symbol
+340 symbols in table

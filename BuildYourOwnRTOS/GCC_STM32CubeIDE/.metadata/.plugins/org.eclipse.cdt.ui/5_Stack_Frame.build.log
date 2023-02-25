@@ -1,0 +1,10 @@
+10:01:15 **** Incremental Build of configuration Debug for project 5_Stack_Frame ****
+make -j8 all 
+arm-none-eabi-size   5_Stack_Frame.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6220	    120	   1920	   8260	   2044	5_Stack_Frame.elf
+Finished building: default.size.stdout
+ 
+
+10:01:16 Build Finished. 0 errors, 0 warnings. (took 386ms)
+

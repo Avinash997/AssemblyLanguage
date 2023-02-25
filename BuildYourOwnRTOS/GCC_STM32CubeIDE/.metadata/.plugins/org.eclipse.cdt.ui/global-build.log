@@ -1,0 +1,31 @@
+07:49:43 **** Incremental Build of configuration Debug for project 9_SpinlockSemaphore ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/BuildYourOwnRTOS/GCC_STM32CubeIDE/9_SpinlockSemaphore/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/BuildYourOwnRTOS/GCC_STM32CubeIDE/9_SpinlockSemaphore/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "9_SpinlockSemaphore.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Gaming Laptop RTX\Documents\BuildYourOwnRTOS\GCC_STM32CubeIDE\9_SpinlockSemaphore\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="9_SpinlockSemaphore.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 9_SpinlockSemaphore.elf
+ 
+arm-none-eabi-objdump -h -S  9_SpinlockSemaphore.elf  > "9_SpinlockSemaphore.list"
+arm-none-eabi-objcopy  -O binary  9_SpinlockSemaphore.elf  "9_SpinlockSemaphore.bin"
+arm-none-eabi-size   9_SpinlockSemaphore.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	    108	   6460	  13320	   3408	9_SpinlockSemaphore.elf
+Finished building: default.size.stdout
+ 
+Finished building: 9_SpinlockSemaphore.bin
+Finished building: 9_SpinlockSemaphore.list
+ 
+ 
+07:49:49 **** Incremental Build of configuration Debug for project 9_SpinlockSemaphore ****
+make -j8 all 
+arm-none-eabi-size   9_SpinlockSemaphore.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	    108	   6460	  13320	   3408	9_SpinlockSemaphore.elf
+Finished building: default.size.stdout
+ 
+07:49:51 **** Incremental Build of configuration Debug for project 9_SpinlockSemaphore ****
+make -j8 all 
+arm-none-eabi-size   9_SpinlockSemaphore.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6752	    108	   6460	  13320	   3408	9_SpinlockSemaphore.elf
+Finished building: default.size.stdout
+ 

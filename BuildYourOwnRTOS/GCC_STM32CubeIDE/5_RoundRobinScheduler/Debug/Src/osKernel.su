@@ -1,0 +1,7 @@
+core_cm4.h:1816:22:__NVIC_SetPriority	16	static
+osKernel.c:36:6:osKernelStackInit	16	static
+osKernel.c:65:9:osKernelAddThreads	24	static,ignoring_inline_asm
+osKernel.c:99:6:osKernelInit	4	static
+osKernel.c:105:6:osKernelLaunch	16	static
+osKernel.c:133:29:SysTick_Handler	0	static,ignoring_inline_asm
+osKernel.c:177:6:osSchedulerLaunch	4	static,ignoring_inline_asm

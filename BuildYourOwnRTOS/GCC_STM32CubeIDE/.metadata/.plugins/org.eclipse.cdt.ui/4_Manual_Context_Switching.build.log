@@ -1,0 +1,10 @@
+06:35:16 **** Incremental Build of configuration Debug for project 4_Manual_Context_Switching ****
+make -j8 all 
+arm-none-eabi-size   4_Manual_Context_Switching.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5932	    112	   1600	   7644	   1ddc	4_Manual_Context_Switching.elf
+Finished building: default.size.stdout
+ 
+
+06:35:17 Build Finished. 0 errors, 0 warnings. (took 369ms)
+

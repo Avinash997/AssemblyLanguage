@@ -1,0 +1,102 @@
+#include "led.h"
+#include "uart.h"
+#include "timebase.h"
+
+
+
+#define STACKFRAME_SIZE		40
+
+uint32_t valve_stack[STACKFRAME_SIZE];
+uint32_t motor_stack[STACKFRAME_SIZE];
+
+/*Stack pointers*/
+uint32_t *sp_valve =&valve_stack[STACKFRAME_SIZE];
+uint32_t *sp_motor = &motor_stack[STACKFRAME_SIZE];
+
+
+void motor_run(void);
+void motor_stop(void);
+void valve_open(void);
+void valve_close(void);
+
+
+
+
+int motor_main(void)
+{
+	while(1)
+	{
+		motor_run();
+		delay(1);
+		motor_stop();
+		delay(1);
+	}
+}
+
+int valve_main(void)
+{
+	while(1)
+	{
+		valve_open();
+		delay(1);
+		valve_close();
+		delay(1);
+	}
+}
+int main(void)
+{
+	led_init();
+	uart_tx_init();
+	timebase_init();
+
+   /*Stack frame for valve thread*/
+	*(--sp_valve) = (1U<<24); /*xPSR*/
+	*(--sp_valve) = (uint32_t)&valve_main;   /*PC*/
+	*(--sp_valve) = 0x0000000DU; /*LR*/
+	*(--sp_valve) = 0x0000000EU; /*R12*/
+	*(--sp_valve) = 0x0000000AU; /*R3*/
+	*(--sp_valve) = 0x0000000EU; /*R2*/
+	*(--sp_valve) = 0x0000000AU; /*R1*/
+	*(--sp_valve) = 0x0000000DU; /*R0*/
+
+
+	 /*Stack frame for motor thread*/
+	*(--sp_motor) = (1U<<24); /*xPSR*/
+	*(--sp_motor) = (uint32_t)&motor_main;   /*PC*/
+	*(--sp_motor) = 0x0000000BU; /*LR*/
+	*(--sp_motor) = 0x0000000EU; /*R12*/
+	*(--sp_motor) = 0x0000000EU; /*R3*/
+	*(--sp_motor) = 0x0000000EU; /*R2*/
+	*(--sp_motor) = 0x0000000EU; /*R1*/
+	*(--sp_motor) = 0x0000000FU; /*R0*/
+
+	while(1)
+	{
+
+
+	}
+}
+
+
+void motor_run(void)
+{
+	printf("Motor is starting...\n\r");
+}
+
+
+void motor_stop(void)
+{
+	printf("Motor is stopping...\n\r");
+}
+
+void valve_open(void)
+{
+	printf("Valve is opening...\n\r");
+}
+
+
+void valve_close(void)
+{
+	printf("Valve is closing...\n\r");
+}
+
